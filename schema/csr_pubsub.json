@@ -1,0 +1,16 @@
+{
+    "name": "projects/syw-cdw-ti-prod/repos/AdobeCampaignMart",
+    "url": "https://source.developers.google.com/p/syw-cdw-ti-prod/r/AdobeCampaignMart",
+    "eventTime": "2020-09-24T15:05:07.107599Z",
+    "refUpdateEvent": {
+        "email": "sachin.koli@transformco.com",
+        "refUpdates": {
+            "refs/heads/master": {
+                "refName": "refs/heads/master",
+                "updateType": "UPDATE_FAST_FORWARD",
+                "oldId": "973f4d41fc15cadfb715516de549b2ac2636d7d1",
+                "newId": "835922d0b32304b918fe2592dde621352ba7b5ec"
+            }
+        }
+    }
+}
