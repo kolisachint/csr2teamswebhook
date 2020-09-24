@@ -1,4 +1,4 @@
-# csr2teamswebhook-
+# csr2teamswebhook
 Cloud Source Repository to Microsoft Teams webhook
 You can receive notifications of changes to your Google Cloud repositories by using Pub/Sub 
 
