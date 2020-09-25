@@ -5,17 +5,17 @@
     "summary": " ",
     "sections": [{
         "activityTitle": "Code Review Process",
-        "activitySubtitle": "sachin.koli@transformco.com merged code changes into master branch",
+        "activitySubtitle": "<Author> merged code changes into master branch",
         "activityImage": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Google_Cloud_Source_Repositories.svg/200px-Google_Cloud_Source_Repositories.svg.png",
         "facts": [{
             "name": "GCP Project",
-            "value": "syw-cdw-ti-prod"
+            "value": "<GCPProject>"
         }, {
             "name": "Code Repository",
-            "value": "AdobeCampaignMart"
+            "value": "<CSR>"
         }, {
             "name": "Merge Date",
-            "value": "2020-09-25 21:00:00 IST"
+            "value": "<MergeDate>"
         }],
         "markdown": true
     }],
@@ -26,7 +26,7 @@
             "targets": [
                 {
                     "os": "default",
-                    "uri": "https://source.developers.google.com/p/syw-cdw-ti-prod/r/AdobeCampaignMart/+/835922d0b32304b918fe2592dde621352ba7b5ec"
+                    "uri": "https://source.developers.google.com/p/<GCPProject>/r/<CSR>/+/<CommitID>"
                 }
             ]
         },
@@ -36,7 +36,7 @@
             "targets": [
                 {
                     "os": "default",
-                    "uri": "http://35.225.237.40/trigger?dag_id=Git_Deployment_In_Production"
+                    "uri": "<DeployURL>"
                 }
             ]
         }
