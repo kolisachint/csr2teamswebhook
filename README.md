@@ -23,7 +23,7 @@ How to add your project git changes to this channel?
                    --service-account=edwetlpd-prod@syw-cdw-ti-prod.iam.gserviceaccount.com
                
                
-Steps followed to develope MS Teams webhook
+Steps followed to develop this MS Teams webhook
 
     Create pubsub topic 
         gcloud pubsub topics create projects/syw-cdw-ti-prod/topics/csr2teamswebhook
