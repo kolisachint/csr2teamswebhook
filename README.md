@@ -1,104 +1,43 @@
-# csr2teamswebhook
-Cloud Source Repository to Microsoft Teams webhook
-You can receive notifications of changes to your Google Cloud repositories by using Pub/Sub 
-
-Configuring Pub/Sub notifications (google.com) 
-
+What is the purpose of this Channel ?
+As part of DevOps activities, we do code review and deploy code to production environment for different applications.
+This channel is created for quick glance at deployment notifications. 
  
+Team can do following activities using this channel ->
+Monitor Code deployments of multiple projects.
+Code Review of code changes
+Deploy code to production environment.
+Monitor production batch status
+Monitor production job failures
+Discuss and assign support activities to the team members
+How to add your project git changes to this channel?
+gcloud source repos update AdobeCampaignInterimLayer    --add-topic=csr2teamswebhook --message-format=json
+               --service-account=edwetlpd-prod@syw-cdw-ti-prod.iam.gserviceaccount.com
+gcloud source repos update AdobeCampaignMart            --add-topic=csr2teamswebhook --message-format=json
+               --service-account=edwetlpd-prod@syw-cdw-ti-prod.iam.gserviceaccount.com
+gcloud source repos update AdobeCampaignMart_VM_Config  --add-topic=csr2teamswebhook --message-format=json
+               --service-account=edwetlpd-prod@syw-cdw-ti-prod.iam.gserviceaccount.com
+gcloud source repos update airflow_dags                 --add-topic=csr2teamswebhook --message-format=json
+               --service-account=edwetlpd-prod@syw-cdw-ti-prod.iam.gserviceaccount.com
+gcloud source repos update nSegment                     --add-topic=csr2teamswebhook --message-format=json
+               --service-account=edwetlpd-prod@syw-cdw-ti-prod.iam.gserviceaccount.com
+Steps followed to develope MS Teams webhook
 
-CSR git push json message 
-
-{ "name": "projects/syw-cdw-ti-prod/repos/AdobeCampaignMart", "url": "https://source.developers.google.com/p/syw-cdw-ti-prod/r/AdobeCampaignMart", "eventTime": "2020-09-24T15:05:07.107599Z", "refUpdateEvent": { "email": "sachin.koli@transformco.com", "refUpdates": { "refs/heads/master": { "refName": "refs/heads/master", "updateType": "UPDATE_FAST_FORWARD", "oldId": "973f4d41fc15cadfb715516de549b2ac2636d7d1", "newId": "835922d0b32304b918fe2592dde621352ba7b5ec" } } } } 
-
+  
+Create pubsub topic 
+gcloud pubsub topics create projects/syw-cdw-ti-prod/topics/csr2teamswebhook
  
-
-Create cloud function to trigger python webhook job, once pub sub receives a message 
-
+How to add your project git changes to this channel?
+gcloud source repos update AdobeCampaignInterimLayer    --add-topic=csr2teamswebhook --message-format=json
+               --service-account=edwetlpd-prod@syw-cdw-ti-prod.iam.gserviceaccount.com
+gcloud source repos update AdobeCampaignMart            --add-topic=csr2teamswebhook --message-format=json
+               --service-account=edwetlpd-prod@syw-cdw-ti-prod.iam.gserviceaccount.com
+gcloud source repos update AdobeCampaignMart_VM_Config  --add-topic=csr2teamswebhook --message-format=json
+               --service-account=edwetlpd-prod@syw-cdw-ti-prod.iam.gserviceaccount.com
+gcloud source repos update airflow_dags                 --add-topic=csr2teamswebhook --message-format=json
+               --service-account=edwetlpd-prod@syw-cdw-ti-prod.iam.gserviceaccount.com
+gcloud source repos update nSegment                     --add-topic=csr2teamswebhook --message-format=json
+               --service-account=edwetlpd-prod@syw-cdw-ti-prod.iam.gserviceaccount.com
  
-
-
+Create a cloud function on pusub topic
+    link python code csr2teamswebhook.py
  
-
- 
-
- 
-
-MS Teams webhook information 
-
-POST->https://outlook.office.com/webhook/f9b88694-aede-4ef1-9a34-25f17836b709@27e4c168-0323-4463-acad-7e124b566726/IncomingWebhook/481da1e377e24e5b8216e18b8f3296c1/0a244876-c3c5-4ff9-bd20-2414764ab9dc 
-
- 
-
-JSON-> 
-
-{ 
-
-  "@context": "https://schema.org/extensions", 
-
-  "@type": "MessageCard", 
-
-  "themeColor": "0072C6", 
-
-  "title": "Visit the Outlook Dev Portal", 
-
-  "text": "Click **Learn More** to learn more about Actionable Messages!", 
-
-  "potentialAction": [ 
-
-    { 
-
-      "@type": "ActionCard", 
-
-      "name": "Send Feedback", 
-
-      "inputs": [ 
-
-        { 
-
-          "@type": "TextInput", 
-
-          "id": "feedback", 
-
-          "isMultiline": true, 
-
-          "title": "Let us know what you think about Actionable Messages" 
-
-        } 
-
-      ], 
-
-      "actions": [ 
-
-        { 
-
-          "@type": "HttpPOST", 
-
-          "name": "Send Feedback", 
-
-          "isPrimary": true, 
-
-          "target": "http://..." 
-
-        } 
-
-      ] 
-
-    }, 
-
-    { 
-
-      "@type": "OpenUri", 
-
-      "name": "Learn More", 
-
-      "targets": [ 
-
-        { "os": "default", "uri": "https://docs.microsoft.com/outlook/actionable-messages" } 
-
-      ] 
-
-    } 
-
-  ] 
-
-} 
