@@ -21,8 +21,6 @@ gcloud source repos update airflow_dags                 --add-topic=csr2teamsweb
 gcloud source repos update nSegment                     --add-topic=csr2teamswebhook --message-format=json
                --service-account=edwetlpd-prod@syw-cdw-ti-prod.iam.gserviceaccount.com
 Steps followed to develope MS Teams webhook
-
-  
 Create pubsub topic 
 gcloud pubsub topics create projects/syw-cdw-ti-prod/topics/csr2teamswebhook
  
