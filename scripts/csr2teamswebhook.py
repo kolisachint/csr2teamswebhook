@@ -9,7 +9,7 @@ DeployURL="http://35.225.237.40/trigger?dag_id=Git_Deployment_In_Production"
 webhook_url="https://outlook.office.com/webhook/f9b88694-aede-4ef1-9a34-25f17836b709@27e4c168-0323-4463-acad-7e124b566726/IncomingWebhook/481da1e377e24e5b8216e18b8f3296c1/0a244876-c3c5-4ff9-bd20-2414764ab9dc"
 csr_msteams_data=\
    """
-    {
+    {  
     "@type": "MessageCard",
     "@context": "http://schema.org/extensions",
     "themeColor": "0076D7",
